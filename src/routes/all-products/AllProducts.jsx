@@ -48,9 +48,9 @@ const AllProducts = ({ allProducts,
           </section> :
           <section className="store-products">
             {allProducts
-              && allProducts.map((item) => (
+              && allProducts.map((item, index) => (
                 <Product
-                  key={item.id}
+                  key={index}
                   item={item}
                   productId={productId}
                   selectedCurrency={selectedCurrency}

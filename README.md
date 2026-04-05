@@ -1,7 +1,5 @@
-![Shopping Time](https://raw.githubusercontent.com/catherineisonline/shopping-time/main/src/assets/images/project-preview.webp)
 
-# [Shopping Time](https://shopping-time.vercel.app/)
-Shopping Time is an e-commerce website that has at least 150 women's clothing products with different sizes and color choices. You can choose various attributes like size and color. There is a cart where you can see added items and edit, add, or remove them. You can also set a currency of your choice.
+Shopping Time is an e-commerce website that has at least 150 clothing products with different sizes and color choices. You can choose various attributes like size and color. There is a cart where you can see added items and edit, add, or remove them. You can also set a currency of your choice.
 
 ## Functionality Overview
 Below is a comprehensive overview of the functionalities that the website offers:
@@ -42,9 +40,9 @@ Below is a comprehensive overview of the functionalities that the website offers
 To get started you need to:
 
 1. Clone the project
-2. pnpm install
+2. npm install
 3. Install listed dependencies
-4. Use available scripts, like pnpm start
+4. Use available scripts, like npm start
 
 ## Dependencies | APIs | Services 
 
@@ -52,10 +50,3 @@ To get started you need to:
 - [React Slider](https://www.npmjs.com/package/react-simple-image-slider)
 - [uuid](https://www.npmjs.com/package/uuid)
 - [Firestore](https://firebase.google.com/docs/firestore)
-
-## Contribution <a id="contribution"></a>
-
-This project serves as a personal portfolio website to show off my personal skills. I do not accept any contributions like pull requests to this project however if you have any suggestions or ideas feel free to contact me or submit an idea in the [discussions](https://github.com/catherineisonline/shopping-time/discussions). Otherwise, you are free to fork this project and change it for your own purposes. 
-
-## License  <a id="license"></a>
-This project is released under the MIT [LICENSE](https://github.com/catherineisonline/shopping-time/blob/main/LICENSE). You can find the specific terms and conditions outlined in the LICENSE file. This means you're free to utilize, modify, and distribute the project according to the terms of the MIT License.

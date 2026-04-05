@@ -46,9 +46,9 @@ export default class SelectedAttributes extends React.Component {
       <section className={className}>
         <h3>{attribute.id}:</h3>
         <section className="buttons">
-          {attribute?.items?.map((item) => (
+          {attribute?.items?.map((item, index) => (
             <section
-              key={item.id}
+              key={index}
               className={
                 attribute.id === "Color" && item.isSelected
                   ? "selected-color-box-section"

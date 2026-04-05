@@ -8,6 +8,7 @@ const Landing = ({ changeCategory }) => {
   useEffect(() => {
     document.title = "Shopping Time";
   }, []);
+  console.log(import.meta.env.VITE_API_KEY, "env test");
   return (
     <main className="landing">
       <article className="hero">

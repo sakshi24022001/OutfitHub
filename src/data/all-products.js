@@ -4,12 +4,8 @@ const categoriesObj = [
         "name": "all"
     },
     {
-        "id": "dresses",
-        "name": "dresses"
-    },
-    {
-        "id": "blouses",
-        "name": "blouses"
+        "id": "jackets",
+        "name": "jackets"
     },
     {
         "id": "jeans",

@@ -14,6 +14,8 @@ const Product = ({
   const [imageShadow, setImageShadow] = useState(false);
 
   const filterCurrency = (item, selectedCurrency) => {
+      if (!Array.isArray(item?.prices)) return;
+
     const correctPrice = item?.prices?.find(
       (price) => price.currency.symbol === selectedCurrency
     );

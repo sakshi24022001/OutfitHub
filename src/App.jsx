@@ -10,6 +10,7 @@ import NotFound from "./routes/not-found/NotFound.jsx";
 import Order from "./routes/order/Order.jsx";
 import products_database from "./database/firebase.js"
 import { collection, getDocs } from 'firebase/firestore/lite';
+import ProductList from "./data/productList.jsx";
 
 const App = () => {
   const [activeCategory, setActiveCategory] = useState('');
@@ -323,9 +324,11 @@ const App = () => {
       localStorage.setItem('productsQuantity', JSON.stringify(0));
     }
   };
-  const getPrice = (prices, currency) => {
-    return prices.filter((price) => price.currency.symbol === currency)[0];
-  };
+const getPrice = (prices, currency) => {
+  if (!Array.isArray(prices)) return { amount: 0 };
+
+  return prices.find((price) => price.currency.symbol === currency);
+};
 
 
   // get total price of cart items
@@ -421,6 +424,7 @@ const App = () => {
         <Route path="/order" element={cartItems.length > 0 && Object.keys(orderFormValue).length > 0 ? <Order cartItems={cartItems} selectedCurrency={selectedCurrency} orderFormValue={orderFormValue} clearCart={clearCart} /> :
           <NotFound />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/upload" element={<ProductList />} />
       </Routes>
     </BrowserRouter>
   );

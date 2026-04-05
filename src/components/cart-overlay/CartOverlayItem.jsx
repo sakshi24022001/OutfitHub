@@ -30,10 +30,20 @@ export default class CartOverlayItem extends React.Component {
   };
 
   getPrice = (prices, currency) => {
-    const [correctPrice] = prices.filter(
-      (price) => price.currency.symbol === currency
+    const normalizedPrices = Array.isArray(prices)
+      ? prices
+      : Object.values(prices || {});
+
+    const correctPrice = normalizedPrices.find(
+      (price) => price?.currency?.symbol === currency
     );
-    this.setState({ priceAmount: correctPrice.amount.toFixed(2) });
+
+    if (!correctPrice) return null;
+
+    this.setState({
+      priceAmount: correctPrice.amount.toFixed(2),
+    });
+
     return correctPrice;
   };
   componentDidMount() {
