@@ -9,7 +9,7 @@ import Checkout from "./routes/checkout/Checkout.jsx";
 import NotFound from "./routes/not-found/NotFound.jsx";
 import Order from "./routes/order/Order.jsx";
 import products_database from "./database/firebase.js"
-import { collection, getDocs } from 'firebase/firestore/lite';
+import { collection, getDocs } from 'firebase/firestore';
 import ProductList from "./data/productList.jsx";
 
 const App = () => {
@@ -60,7 +60,10 @@ const App = () => {
   const retrieveProducts = async (db) => {
     const all_products_col = collection(db, 'products');
     const productsSnapshot = await getDocs(all_products_col);
-    const all_products = productsSnapshot.docs.map(doc => doc.data());
+    const all_products = productsSnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
     return all_products;
   }
 
@@ -117,17 +120,22 @@ const App = () => {
     }
 
   }, [cachedCurrencies]);
-  async function retrieveCurrencies(db) {
-    try {
-      const all_currencies_col = collection(db, 'currencies');
-      const currenciesSnapshot = await getDocs(all_currencies_col);
-      const all_currencies = currenciesSnapshot.docs.map(doc => doc.data());
-      return all_currencies;
-    } catch (error) {
-      console.error('Error retrieving currencies from Firebase:', error);
-      return [];
-    }
+const retrieveCurrencies = async (db) => {
+  try {
+    const all_currencies_col = collection(db, "currencies");
+    const currenciesSnapshot = await getDocs(all_currencies_col);
+
+    const all_currencies = currenciesSnapshot.docs.map(doc => ({
+      id: doc.id,   // ✅ always include id
+      ...doc.data()
+    }));
+
+    return all_currencies;
+  } catch (error) {
+    console.error("Error retrieving currencies from Firebase:", error);
+    return [];
   }
+};
 
   useEffect(() => {
     getCurrencies();
@@ -424,7 +432,7 @@ const getPrice = (prices, currency) => {
         <Route path="/order" element={cartItems.length > 0 && Object.keys(orderFormValue).length > 0 ? <Order cartItems={cartItems} selectedCurrency={selectedCurrency} orderFormValue={orderFormValue} clearCart={clearCart} /> :
           <NotFound />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/upload" element={<ProductList />} />
+        {/* <Route path="/upload" element={<ProductList />} /> */}
       </Routes>
     </BrowserRouter>
   );

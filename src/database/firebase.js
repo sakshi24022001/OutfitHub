@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore} from 'firebase/firestore/lite';
+import { getFirestore} from 'firebase/firestore';
 const API_KEY = import.meta.env.VITE_API_KEY;
 const AUTH_DOMAIN = import.meta.env.VITE_AUTH_DOMAIN
 const PROJECT_ID = import.meta.env.VITE_PROJECT_ID
@@ -20,5 +20,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const products_database = getFirestore(app);
-export default products_database;
+// const products_database = getFirestore(app);
+const db = getFirestore(app);
+
+export default db;
