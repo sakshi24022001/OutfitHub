@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import HeroCover from '../../assets/images/landing-images/hero-cover.webp'
+import HeroCover from '../../assets/images/landing-images/gridMainImg.jpg'
 import "./landing.css"
 import { ResetLocation } from "../../helpers/ResetLocation";
 
@@ -18,14 +18,14 @@ const Landing = ({ changeCategory }) => {
       <article className="grid">
         <section className="grid-one">
           <Link
-            to={`/store/blouses`}
+            to={`/store/jackets`}
             className="custom-btn grid-button"
             onClick={() => {
-              changeCategory("blouses");
+              changeCategory("jackets");
               ResetLocation();
             }}
           >
-            <span>Blouses</span>
+            <span>Jackets</span>
           </Link>
         </section>
         <section to="" className="grid-two">
