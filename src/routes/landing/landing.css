@@ -71,7 +71,7 @@
 
 .grid-one {
     grid-area: 1 / 1 / 2 / 4;
-    background-image: url("../../assets/images/landing-images/gridOne.webp");
+    background-image: url("../../assets/images/landing-images/gridOne.jpg");
 }
 
 .grid-two {
@@ -91,7 +91,7 @@
 
 .grid-five {
     grid-area: 3 / 1 / 4 / 6;
-    background-image: url("../../assets/images/landing-images/gridFive.webp");
+    background-image: url("../../assets/images/landing-images/gridFive.jpg");
 }
 
 .grid-one .grid-button {
