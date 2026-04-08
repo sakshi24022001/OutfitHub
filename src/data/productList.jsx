@@ -209,6 +209,9 @@ const ProductList = () => {
 
     ];
 
+
+    
+
     for (let product of products) {
       await addDoc(collection(db, "products"), product);
     }
